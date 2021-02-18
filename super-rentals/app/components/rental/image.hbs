@@ -4,6 +4,14 @@ we opted for the ...attributes keyword instead, which is also sometimes referred
 This allows arbitrary HTML attributes to be passed in when invoking this component
 --}}
 
-<div class="image">
+{{#if this.isLarge}}
+<button class="image large" {{on 'click' this.toggleSize}}>
   <img ...attributes>
-</div>
+  <small>View smaller</small>
+</button>
+{{else}}
+<button class="image" {{on 'click' this.toggleSize}}>
+  <img ...attributes>
+  <small>View larger</small>
+</button>
+{{/if}}
